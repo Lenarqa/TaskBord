@@ -1,0 +1,25 @@
+header{
+    display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+}
+
+.list-content{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+    height: 700px;
+    width: 272px;
+}
+
+.list-header, .add-new-part-of-card{
+    display: flex;
+    text-align: center;
+    padding: 2px;
+    margin: 10px;
+    width: 240px;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid black;
+}
