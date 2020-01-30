@@ -4,6 +4,7 @@ header{
     justify-content: space-around;
 }
 
+
 .list-content{
     display: flex;
     flex-direction: column;
@@ -12,7 +13,7 @@ header{
     width: 272px;
 }
 
-.list-header, .add-new-part-of-card{
+.list-header, .add-new-part-of-card, .card-btn{
     display: flex;
     text-align: center;
     padding: 2px;
@@ -23,3 +24,21 @@ header{
     justify-content: space-around;
     border: 1px solid black;
 }
+
+.card-btn{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 30px;
+    width: 30px;
+}
+
+
+textarea {
+    width: 90%; /* Ширина поля в процентах */
+    height: 90%; /* Высота поля в пикселах */
+    resize: none; /* Запрещаем изменять размер */
+    display: flex;
+    text-align: start;
+    justify-content: space-around;
+   } 
