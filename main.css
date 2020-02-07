@@ -44,7 +44,34 @@ header{
     margin: 10px;
 }
 
+.create-new-list{
+    margin: 10px;
+    padding: 10px;
+}
 
 textarea {
     resize: none; /* Запрещаем изменять размер */
+    border-radius: 10px;
 } 
+
+.creating-tasks-window{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 30%;
+    border: 1px solid yellow;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.creating-tasks-window > div{
+    display: flex;
+    margin-top: 5px;
+    width: 100%;
+    /*border: 2px solid firebrick;*/
+    justify-content: space-around;
+}
+
+.creating-tasks-window > button {
+    width: 60%;
+}
