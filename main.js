@@ -1,8 +1,9 @@
-function addNewCard() {
+function addNewCard(thisTextAreaSpace, thisTaskList) {
+    console.log(thisTaskList);
     let newCard = document.createElement('div');
     newCard.className = "tasks";
     
-    let newCardText = document.getElementById('newCardText').value;
+    let newCardText = $(thisTextAreaSpace.lastChild).val();
     
     let cardText = document.createElement('p');
     cardText.onclick = function() {ChangeToTextArea(this);}
@@ -20,8 +21,8 @@ function addNewCard() {
         newCard.appendChild(cardText);
         newCard.appendChild(btn);
         
-        text = document.querySelector('#list-content').appendChild(newCard);
-        document.getElementById('newCardText').value = "";
+        $(thisTaskList).append(newCard);
+        $(thisTextAreaSpace.lastChild).val('');
     }
 }
 
@@ -44,10 +45,11 @@ function CreateTaskWindow(){
     let btnWrapper = document.createElement('div');
 
     newListContent.className = "creating-tasks-window";
-    listName.className = "textarea";
+    //listName.className = "textarea";
     btnCancel.className = "cancel-btn";
 
     btnCancel.onclick = btnCancelFun;
+    btnAddList.onclick = btnAddNewList;
 
     listName.placeholder = "Введите заголовок списка";
     btnAddList.textContent = "new tasks";
@@ -67,3 +69,30 @@ function btnCancelFun(){
     let text = "+ Добавить список";
     $('.creating-tasks-window').replaceWith("<button class='create-new-list' onclick='CreateTaskWindow()'>" + text + "</button>");
 };
+
+function btnAddNewList(){
+    let listContent = document.createElement('div');
+    //let btnAddNewTask = document.createElement('button');
+    let inputInList = document.createElement('input');
+    let textareaInList = document.createElement('textarea');
+    let addNewPartOfCard = document.createElement('div');
+
+
+
+    listContent.className = "list-content";
+    addNewPartOfCard.className = "add-new-part-of-card";
+    inputInList.className = "card-btn";
+
+    textareaInList.placeholder = "Введите задание для карточки"
+    
+    inputInList.onclick = function(){ addNewCard(inputInList.parentElement,addNewPartOfCard.parentElement);};
+    inputInList.type = "button";
+    inputInList.value ="+";
+
+    addNewPartOfCard.appendChild(inputInList);
+    addNewPartOfCard.appendChild(textareaInList);
+
+    listContent.appendChild(addNewPartOfCard);
+
+    document.querySelector('#list-wrapper').appendChild(listContent);
+}
