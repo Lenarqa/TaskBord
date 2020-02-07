@@ -32,8 +32,12 @@ function ChangeToTextArea(element){
 }
 
 function ChangeToP(element){
-    $(element).replaceWith("<p onclick='ChangeToTextArea(this)'>" + $(element).val() + "</p>");
-    let text = element.innerHTML;
+    let pastText = element.innerHTML;
+    if($(element).val() == null || $(element).val() === ''){
+        console.log("Пустое поле!");
+        $(element).val(pastText);
+    }
+    $(element).replaceWith("<p onclick='ChangeToTextArea(this)'>" + $(element).val() + "</p>"); 
 }
 
 function CreateTaskWindow(){

@@ -23,6 +23,7 @@ header{
     display: flex;
     align-items: center;
     border: 1px solid red;
+    border-radius: 7px;
     padding: 10px;
     margin: 10px;
 }
@@ -84,7 +85,7 @@ textarea{
 
 .creating-tasks-window > div > button {
     border-radius: 10px;
-    padding: 7px;
+    padding: 7px 10px;
     outline: none;
     border: 0;
 }
