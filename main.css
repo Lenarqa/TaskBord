@@ -4,41 +4,47 @@ header{
     justify-content: space-around;
 }
 
-
-.list-content{
+#list-wrapper{
     display: flex;
-    flex-direction: column;
-    border: 1px solid green;
-    height: 700px;
-    width: 272px;
+    flex-direction: row;
+    border: 2px solid black;
+    margin-top: 2px;
+    padding: 10px;
+    height: 300px;
 }
 
-.list-header, .add-new-part-of-card, .card-btn{
+.list-content{
+    border: 1px solid green;
+    margin-right: 10px;
+}
+
+.add-new-part-of-card{
     display: flex;
-    text-align: center;
-    padding: 2px;
+    align-items: center;
+    border: 1px solid red;
+    padding: 10px;
     margin: 10px;
-    width: 240px;
-    height: 60px;
-    flex-direction: row;
-    justify-content: space-around;
-    border: 1px solid black;
 }
 
 .card-btn{
     display: flex;
+    margin: 5px;
     align-items: center;
     justify-content: space-around;
     height: 30px;
     width: 30px;
 }
 
+.tasks{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid red;
+    padding: 10px;
+    margin: 10px;
+}
+
 
 textarea {
-    width: 90%; /* Ширина поля в процентах */
-    height: 90%; /* Высота поля в пикселах */
     resize: none; /* Запрещаем изменять размер */
-    display: flex;
-    text-align: start;
-    justify-content: space-around;
-   } 
+} 

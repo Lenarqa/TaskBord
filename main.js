@@ -1,12 +1,11 @@
 function addNewCard() {
     let newCard = document.createElement('div');
-    newCard.className = "list-header";
+   // newCard.className = "list-header";
+    newCard.className = "tasks";
     
     let newCardText = document.getElementById('newCardText').value;
-    //let newCardText = $('#newCardText').data('placeholder');
     
     let cardText = document.createElement('p');
-    //cardText.className = 'p-change-class';
     cardText.onclick = function() {ChangeToTextArea(this);}
     
     if(newCardText == ""){
@@ -31,7 +30,7 @@ function addNewCard() {
 function ChangeToTextArea(element){
     let pastText = element.innerHTML;
     console.log(pastText);
-    $(element).replaceWith("<textarea  cols='10' rows='10' onblur='ChangeToP(this)'>" + pastText + "</textarea>");
+    $(element).replaceWith("<textarea  cols='20' rows='3' onblur='ChangeToP(this)'>" + pastText + "</textarea>");
 }
 
 function ChangeToP(element){
