@@ -1,6 +1,7 @@
 header{
     display: flex;
     border: 1px solid black;
+    text-align: center;
     justify-content: space-around;
 }
 
@@ -28,9 +29,13 @@ header{
 
 .card-btn{
     display: flex;
-    margin: 5px;
     align-items: center;
     justify-content: space-around;
+    margin: 5px;
+    border-radius: 10px;
+    padding: 7px;
+    border: 0;
+    outline: none;
     height: 30px;
     width: 30px;
 }
@@ -47,11 +52,16 @@ header{
 .create-new-list{
     margin: 10px;
     padding: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: 0;
 }
 
-textarea {
-    resize: none; /* Запрещаем изменять размер */
-    border-radius: 10px;
+textarea{
+    resize: none; 
+    border-radius: 7px;
+    outline: none;
+    border: 1px solid black;
 } 
 
 .creating-tasks-window{
@@ -72,6 +82,9 @@ textarea {
     justify-content: space-around;
 }
 
-.creating-tasks-window > button {
-    width: 60%;
+.creating-tasks-window > div > button {
+    border-radius: 10px;
+    padding: 7px;
+    outline: none;
+    border: 0;
 }

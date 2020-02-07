@@ -1,5 +1,4 @@
 function addNewCard(thisTextAreaSpace, thisTaskList) {
-    console.log(thisTaskList);
     let newCard = document.createElement('div');
     newCard.className = "tasks";
     
@@ -45,14 +44,13 @@ function CreateTaskWindow(){
     let btnWrapper = document.createElement('div');
 
     newListContent.className = "creating-tasks-window";
-    //listName.className = "textarea";
     btnCancel.className = "cancel-btn";
 
     btnCancel.onclick = btnCancelFun;
     btnAddList.onclick = btnAddNewList;
 
     listName.placeholder = "Введите заголовок списка";
-    btnAddList.textContent = "new tasks";
+    btnAddList.textContent = "Добавить список";
     btnCancel.textContent = "X";
 
     btnWrapper.appendChild(btnAddList);
@@ -72,7 +70,6 @@ function btnCancelFun(){
 
 function btnAddNewList(){
     let listContent = document.createElement('div');
-    //let btnAddNewTask = document.createElement('button');
     let inputInList = document.createElement('input');
     let textareaInList = document.createElement('textarea');
     let addNewPartOfCard = document.createElement('div');
@@ -95,4 +92,5 @@ function btnAddNewList(){
     listContent.appendChild(addNewPartOfCard);
 
     document.querySelector('#list-wrapper').appendChild(listContent);
+    btnCancelFun();
 }
