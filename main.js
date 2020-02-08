@@ -103,7 +103,8 @@ function btnAddNewList(textareaWrapper){
 
     listContent.appendChild(addNewPartOfCard);
 
-    document.querySelector('#list-wrapper').appendChild(listContent);
+    $('#list-wrapper').prepend(listContent);
+    //document.querySelector('#list-wrapper').appendChild(listContent);
     btnCancelFun();
 
     addNewCard(textareaWrapper,listContent);
