@@ -1,4 +1,5 @@
 function addNewCard(thisTextAreaSpace, thisTaskList) {
+    console.log(thisTextAreaSpace.lastChild);
     let newCard = document.createElement('div');
     newCard.className = "tasks";
     
@@ -33,11 +34,17 @@ function ChangeToTextArea(element){
 
 function ChangeToP(element){
     let pastText = element.innerHTML;
-    if($(element).val() == null || $(element).val() === ''){
+    let newText = String($(element).val());
+
+    newText = newText.replace(/\s+/g, '');
+
+    if(newText === ""){
         console.log("Пустое поле!");
         $(element).val(pastText);
     }
-    $(element).replaceWith("<p onclick='ChangeToTextArea(this)'>" + $(element).val() + "</p>"); 
+
+    $(element).replaceWith("<p onclick='ChangeToTextArea(this)'>" + $(element).val() + "</p>");
+   
 }
 
 function CreateTaskWindow(){
@@ -46,12 +53,13 @@ function CreateTaskWindow(){
     let btnAddList = document.createElement('button');
     let btnCancel = document.createElement('button');
     let btnWrapper = document.createElement('div');
+    let textareaWrapper = document.createElement('div');
 
     newListContent.className = "creating-tasks-window";
     btnCancel.className = "cancel-btn";
 
     btnCancel.onclick = btnCancelFun;
-    btnAddList.onclick = btnAddNewList;
+    btnAddList.onclick =function(){btnAddNewList(textareaWrapper)};
 
     listName.placeholder = "Введите заголовок списка";
     btnAddList.textContent = "Добавить список";
@@ -60,10 +68,10 @@ function CreateTaskWindow(){
     btnWrapper.appendChild(btnAddList);
     btnWrapper.appendChild(btnCancel);
 
-    newListContent.appendChild(listName);
+    textareaWrapper.appendChild(listName);
+    newListContent.appendChild(textareaWrapper);
     newListContent.appendChild(btnWrapper);
     
-    //document.querySelector('#list-wrapper').appendChild(newListContent);
     $('.create-new-list').replaceWith(newListContent);
 }
 
@@ -72,7 +80,7 @@ function btnCancelFun(){
     $('.creating-tasks-window').replaceWith("<button class='create-new-list' onclick='CreateTaskWindow()'>" + text + "</button>");
 };
 
-function btnAddNewList(){
+function btnAddNewList(textareaWrapper){
     let listContent = document.createElement('div');
     let inputInList = document.createElement('input');
     let textareaInList = document.createElement('textarea');
@@ -97,4 +105,6 @@ function btnAddNewList(){
 
     document.querySelector('#list-wrapper').appendChild(listContent);
     btnCancelFun();
+
+    addNewCard(textareaWrapper,listContent);
 }
