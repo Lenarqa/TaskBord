@@ -8,6 +8,13 @@ function addNewCard(thisTextAreaSpace, thisTaskList) {
     let cardText = document.createElement('p');
     cardText.onclick = function() {ChangeToTextArea(this);}
     
+    $(newCard).draggable({
+        connectToSortable: '.list-content',
+    }); //позволяет перемещать задания
+    $(thisTaskList).sortable();
+
+
+
     if(newCardText == ""){
         alert("Вы забыли ввести текст задания!");
     }else{
@@ -25,6 +32,7 @@ function addNewCard(thisTextAreaSpace, thisTaskList) {
         $(thisTextAreaSpace.lastChild).val('');
     }
 }
+
 
 
 function ChangeToTextArea(element){
