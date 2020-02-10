@@ -51,7 +51,7 @@ header{
     margin: 10px;
 }
 
-.create-new-list{
+.create-new-list, .add-new-task-btn{
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
