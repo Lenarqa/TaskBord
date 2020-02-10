@@ -11,18 +11,19 @@ header{
     border: 2px solid black;
     margin-top: 2px;
     padding: 10px;
-    height: 300px;
+    min-height: 350px;
 }
 
 .list-content{
     border: 1px solid green;
     margin-right: 10px;
+    max-width: 250px;
 }
 
 .add-new-part-of-card{
     display: flex;
     align-items: center;
-    border: 1px solid red;
+    border: 1px solid blueviolet;
     border-radius: 7px;
     padding: 10px;
     margin: 10px;
