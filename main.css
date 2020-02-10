@@ -51,6 +51,10 @@ header{
     margin: 10px;
 }
 
+.tasks > p {
+    max-width: 120px;
+    word-wrap:break-word;
+}
 .create-new-list, .add-new-task-btn{
     margin: 10px;
     padding: 10px;
