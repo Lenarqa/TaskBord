@@ -1,3 +1,8 @@
+//Никогда не использовать класс .creating-tasks-window и .create-new-list
+//.creating-tasks-window использован для поиска уникального элемента, который создает новые списки задания.
+//.create-new-list используется для возможности переносить задания из одного списка в другой.
+
+
 function addNewCard(thisTextAreaSpace, thisTaskList) {
     //console.log(thisTextAreaSpace.lastChild);
     let newCard = document.createElement('div');
@@ -16,8 +21,8 @@ function addNewCard(thisTextAreaSpace, thisTaskList) {
     
 
 
-
-    if(newCardText == ""){
+    newCardText1 = newCardText.replace(/\s+/g, '');
+    if(newCardText1 == ""){
         alert("Вы забыли ввести текст задания!");
     }else{
         cardText.textContent = newCardText;
@@ -91,43 +96,46 @@ function btnCancelFun(){
 };
 
 function btnAddNewList(textareaWrapper){
-    let listContent = document.createElement('div');
-    let inputInList = document.createElement('input');
-    let textareaInList = document.createElement('textarea');
-    let addNewPartOfCard = document.createElement('div');
-    let btnAddNewTask = document.createElement('button');
+    let textFromTextAreaWrapper = String($(textareaWrapper.firstChild).val()).replace(/\s+/g, '')
+    if(textFromTextAreaWrapper == ""){
+            alert("Вы забыли ввести текст первого задания!");
+    }else{   
+        let listContent = document.createElement('div');
+        let inputInList = document.createElement('input');
+        let textareaInList = document.createElement('textarea');
+        let addNewPartOfCard = document.createElement('div');
+        let btnAddNewTask = document.createElement('button');
 
-    //btn add new task 
-    btnAddNewTask.innerHTML = "+ Добавить новое задание";
-    btnAddNewTask.className = "add-new-task-btn";
-    btnAddNewTask.onclick = function () {changeBtnAddNewTaskOn(this,addNewPartOfCard)};
+        //btn add new task 
+        btnAddNewTask.innerHTML = "+ Добавить новое задание";
+        btnAddNewTask.className = "add-new-task-btn";
+        btnAddNewTask.onclick = function () {changeBtnAddNewTaskOn(this,addNewPartOfCard)};
 
-    listContent.className = "list-content";
-    addNewPartOfCard.className = "add-new-part-of-card";
-    inputInList.className = "card-btn";
+        listContent.className = "list-content";
+        addNewPartOfCard.className = "add-new-part-of-card";
+        inputInList.className = "card-btn";
 
-    textareaInList.placeholder = "Введите задание для карточки"
-    
-    inputInList.onclick = function(){ 
-        addNewCard(inputInList.parentElement, addNewPartOfCard.parentElement);
-        $(this.parentElement).replaceWith(btnAddNewTask);
-    };
+        textareaInList.placeholder = "Введите задание для карточки"
+        
+        inputInList.onclick = function(){ 
+            addNewCard(inputInList.parentElement, addNewPartOfCard.parentElement);
+            $(this.parentElement).replaceWith(btnAddNewTask);
+        };
 
-    inputInList.type = "button";
-    inputInList.value ="+";
+        inputInList.type = "button";
+        inputInList.value ="+";
 
-    addNewPartOfCard.appendChild(inputInList);
-    addNewPartOfCard.appendChild(textareaInList);
+        addNewPartOfCard.appendChild(inputInList);
+        addNewPartOfCard.appendChild(textareaInList);
 
-    //listContent.appendChild(addNewPartOfCard//);
-    listContent.appendChild(btnAddNewTask);
+        listContent.appendChild(btnAddNewTask);
 
 
-    $('#list-wrapper').prepend(listContent);
-    //document.querySelector('#list-wrapper').appendChild(listContent);
-    btnCancelFun();
+        $('#list-wrapper').prepend(listContent);
+        btnCancelFun();
 
-    addNewCard(textareaWrapper,listContent);
+        addNewCard(textareaWrapper,listContent);
+    }
 }
 
 function changeBtnAddNewTaskOn(btnAddNewTask,addNewPartOfCard){
