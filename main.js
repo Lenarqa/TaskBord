@@ -30,7 +30,8 @@ function addNewCard(thisTextAreaSpace, thisTaskList) {
         //btn
         let btn = document.createElement('button');
         btn.textContent = '...';
-        btn.className = 'card-btn';
+        btn.className = 'card-btn'; 
+        btn.onclick = function() {deleteThisTask(this)};
 
         newCard.appendChild(cardText);
         newCard.appendChild(btn);
@@ -141,3 +142,31 @@ function btnAddNewList(textareaWrapper){
 function changeBtnAddNewTaskOn(btnAddNewTask,addNewPartOfCard){
     $(btnAddNewTask).replaceWith(addNewPartOfCard);
 }
+
+function deleteThisTask(thisTask){
+    
+    var trueAnswear = confirm("Удалить текущее задание?");
+    
+    if(trueAnswear){
+        thisTask.parentElement.remove();
+    }
+}
+
+/*
+function showTaskMenu(btn){
+    let menu = document.createElement('div');
+    menu.className = 'task-btn-menu';
+    let deleteTaskText = document.createElement('p');
+    deleteTaskText.textContent = "Удалить задание";
+
+    let yesBtn = document.createElement('button');
+    
+    menu.appendChild(deleteTaskText);
+    menu.appendChild(yesBtn);
+
+    $(btn).replaceWith(menu);
+
+    console.log(btn.className);
+
+}
+*/
